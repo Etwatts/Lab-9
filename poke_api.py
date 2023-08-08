@@ -3,6 +3,7 @@ Library for interacting with the PokeAPI.
 https://pokeapi.co/
 '''
 import requests
+from tkinter import messagebox
 
 POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon/'
 
@@ -43,8 +44,7 @@ def get_pokemon_info(pokemon):
         # Return dictionary of Pokemon info
         return resp_msg.json()
     else:
-        print('failure')
-        print(f'Response code: {resp_msg.status_code} ({resp_msg.reason})')
+        messagebox.showerror(title='Error', message=f'Unable to get the information for {pokemon} from PokeAPI')
 
 if __name__ == '__main__':
     main()
